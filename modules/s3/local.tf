@@ -1,3 +1,3 @@
 locals {
-  s3_tag = "${var.project_name}-s3"
+  s3_tag = "terraform-s3-bucket"
 }
