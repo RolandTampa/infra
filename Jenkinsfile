@@ -23,7 +23,7 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 dir("${TF_DIR}") {
-                    sh 'terraform init -input=false'
+                    sh 'terraform init -input=false -backend-config=backend.config'
                 }
             }
         }
@@ -58,6 +58,9 @@ pipeline {
         }
 
         stage('Terraform Apply') {
+            when {
+                branch 'main'
+            }
             steps {
                 dir("${TF_DIR}") {
                     sh 'terraform apply -input=false -auto-approve tfplan'

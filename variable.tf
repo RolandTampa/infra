@@ -1,3 +1,8 @@
+variable "project_name" {
+  description = "Project name used for tagging and naming resources"
+  default     = "terraform-class"
+}
+
 variable "aws_region" {
   description = "AWS region for all resources"
   default     = "us-east-1"

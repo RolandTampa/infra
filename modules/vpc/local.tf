@@ -1,3 +1,3 @@
 locals {
-  vpc_tag = "main-vpc"
+  vpc_tag = "${var.project_name}-vpc"
 }

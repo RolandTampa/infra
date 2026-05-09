@@ -1,3 +1,3 @@
 locals {
-  iam_tag = "terraform-iam-user"
+  iam_tag = "${var.project_name}-iam"
 }
