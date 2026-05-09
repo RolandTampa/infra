@@ -25,7 +25,6 @@ variable "availability_zone" {
 
 variable "ami_id" {
   description = "AMI ID for the EC2 instance"
-  default     = "ami-0ec10929233384c7f"
 }
 
 variable "instance_type" {
@@ -34,11 +33,41 @@ variable "instance_type" {
 }
 
 variable "bucket_name" {
-  description = "S3 bucket name"
-  default     = "my-moduleclass2026"
+  description = "S3 bucket name (must be globally unique)"
 }
 
 variable "iam_user_name" {
   description = "Name of the IAM user"
-  default     = "iamclass"
+}
+
+variable "cluster_name" {
+  description = "Name of the EKS cluster"
+}
+
+variable "cluster_version" {
+  description = "Kubernetes version for the EKS cluster"
+  default     = "1.31"
+}
+
+variable "node_instance_type" {
+  description = "EC2 instance type for EKS worker nodes"
+  default     = "t3.medium"
+}
+
+variable "node_desired_size" {
+  description = "Desired number of EKS worker nodes"
+  type        = number
+  default     = 2
+}
+
+variable "node_min_size" {
+  description = "Minimum number of EKS worker nodes"
+  type        = number
+  default     = 1
+}
+
+variable "node_max_size" {
+  description = "Maximum number of EKS worker nodes"
+  type        = number
+  default     = 3
 }
