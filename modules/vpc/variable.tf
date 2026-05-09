@@ -11,5 +11,13 @@ variable "public_subnet_cidr" {
 }
 
 variable "availability_zone" {
-  description = "Availability zone for the public subnet"
+  description = "Availability zone for the first public subnet"
+}
+
+variable "public_subnet_cidr_2" {
+  description = "CIDR block for the second public subnet (used by EKS)"
+}
+
+variable "availability_zone_2" {
+  description = "Availability zone for the second public subnet"
 }

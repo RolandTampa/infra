@@ -45,6 +45,22 @@ resource "aws_route_table_association" "public" {
   route_table_id = aws_route_table.public.id
 }
 
+resource "aws_subnet" "public_2" {
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = var.public_subnet_cidr_2
+  availability_zone       = var.availability_zone_2
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name = "${local.vpc_tag}-public-subnet-2"
+  }
+}
+
+resource "aws_route_table_association" "public_2" {
+  subnet_id      = aws_subnet.public_2.id
+  route_table_id = aws_route_table.public.id
+}
+
 resource "aws_security_group" "ec2_sg" {
   name        = "${local.vpc_tag}-ec2-sg"
   description = "Allow SSH and HTTP inbound traffic"
